@@ -1,4 +1,5 @@
 import "./Dashboard.css";
+import { Link } from "react-router-dom";
 function Dashboard() {
   return (
     <div className="dashboard">
@@ -8,12 +9,12 @@ function Dashboard() {
           A place that host a database of shrines in Japan
         </p>
         <div className="dashboard__link-container">
-          <a href="./Shrines" className="dashboard__link-shrine">
-            View Shrines
-          </a>
-          <a href="./PublicApi" className="dashboard__link-dev">
-            For Developers
-          </a>
+          <Link to="shrines" className="link">
+            Shrines
+          </Link>
+          <Link to="public-api" className="link">
+            Public Api
+          </Link>
         </div>
       </div>
     </div>

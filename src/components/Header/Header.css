@@ -3,11 +3,7 @@
   justify-content: center;
   padding: 10px;
 }
-.header__logo-text {
-  margin: 0;
+
+.header__logo {
   font-size: 20px;
-}
-.header__link {
-  text-decoration: none;
-  color: inherit;
 }

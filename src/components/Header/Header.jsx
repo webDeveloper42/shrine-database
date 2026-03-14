@@ -1,10 +1,11 @@
 import "./Header.css";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
-      <a href="./" className="header__link">
-        <h1 className="header__logo-text">Shrine Finder</h1>
-      </a>
+      <Link to="/" className="link header__logo">
+        Shrine Finder
+      </Link>
     </header>
   );
 }

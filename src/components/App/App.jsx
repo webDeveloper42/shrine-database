@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 import Dashboard from "../Dashboard/Dashboard";
 import Shrines from "../Shrines/Shrines";
 import PublicApi from "../PublicApi/PublicApi";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
       <div className="page__content">
         <Header />
         <Routes>
+          <Route path="*" element={<PageNotFound />} />
           <Route path="/" element={<Dashboard />} />
-          <Route path="/Shrines" element={<Shrines />} />
-          <Route path="/PublicApi" element={<PublicApi />} />
+          <Route path="/shrines" element={<Shrines />} />
+          <Route path="/public-api" element={<PublicApi />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
