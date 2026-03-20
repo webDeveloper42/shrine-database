@@ -2,6 +2,9 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
+  margin-top: auto;
+  width: 100%;
+  max-width: 100%;
 }
 .footer__developer,
 .footer__year {

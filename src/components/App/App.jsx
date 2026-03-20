@@ -8,20 +8,21 @@ import Dashboard from "../Dashboard/Dashboard";
 import Shrines from "../Shrines/Shrines";
 import PublicApi from "../PublicApi/PublicApi";
 import PageNotFound from "../PageNotFound/PageNotFound";
+import shrinesData from "../../utils/constants.js";
 
 function App() {
+  const [shrines, setShrine] = useState(shrinesData);
+  const counter = shrines.length;
   return (
-    <div className="page">
-      <div className="page__content">
-        <Header />
-        <Routes>
-          <Route path="*" element={<PageNotFound />} />
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/shrines" element={<Shrines />} />
-          <Route path="/public-api" element={<PublicApi />} />
-        </Routes>
-        <Footer />
-      </div>
+    <div className="page__content">
+      <Header counter={counter} />
+      <Routes>
+        <Route path="*" element={<PageNotFound />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/shrines" element={<Shrines shrines={shrines} />} />
+        {/* <Route path="/public-api" element={<PublicApi />} /> */}
+      </Routes>
+      <Footer />
     </div>
   );
 }

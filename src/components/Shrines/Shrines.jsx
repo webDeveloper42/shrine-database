@@ -1,14 +1,14 @@
 import "./Shrines.css";
 import ListItem from "../ListItem/ListItem";
-function Shrines() {
+function Shrines({ shrines }) {
   return (
     <div className="shrines">
       <div className="shrines__wrapper">
         <div className="shrines__query"></div>
         <ul className="shrines__list">
-          <template className="shrines__list-template">
-            <ListItem />
-          </template>
+          {shrines.map((shrine) => {
+            return <ListItem key={shrine.id} shrine={shrine} />;
+          })}
         </ul>
       </div>
     </div>

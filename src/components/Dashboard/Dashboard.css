@@ -1,0 +1,34 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+.dashboard__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dashboard__text {
+  width: 370px;
+  text-align: center;
+  align-self: center;
+  font-size: 17.5px;
+}
+.dashboard__link-container {
+  display: flex;
+  gap: 10px;
+}
+.dashboard__link {
+  color: inherit;
+  text-decoration: none;
+}
+@media screen and (max-width: 510px) {
+  .dashboard__title {
+    text-align: center;
+    width: 300px;
+  }
+  .dashboard__text {
+    width: 287px;
+  }
+}

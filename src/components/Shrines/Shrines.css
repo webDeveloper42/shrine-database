@@ -1,0 +1,22 @@
+.shrines {
+  min-height: 80vh;
+}
+.shrines__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.shrines__list {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 510px) {
+  .shrines {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+}

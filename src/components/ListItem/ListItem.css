@@ -1,0 +1,42 @@
+.shrines__list-item {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  text-align: center;
+  padding: 5px 0px;
+  gap: 10px;
+}
+.shrines__title,
+.shrines__location,
+.shrines__text,
+.shrines__address {
+  display: flex;
+  margin: 0;
+  align-items: end;
+}
+.shrines__title {
+  font-size: 20px;
+  font-weight: normal;
+}
+.shrines__address {
+  display: none;
+}
+@media screen and (max-width: 855px) {
+  .shrines__text,
+  .shrines__address {
+    display: none;
+  }
+  .shrines__list-item {
+    justify-content: center;
+    text-align: center;
+    height: 40px;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 510px) {
+  .shrines__location,
+  .shrines__text,
+  .shrines__address {
+    display: none;
+  }
+}
