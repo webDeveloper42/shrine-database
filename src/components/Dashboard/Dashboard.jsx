@@ -4,18 +4,18 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <div className="dashboard__hero">
-        <h1 className="dashboard__title">Welcome to the Shrine Finder</h1>
+        <h1 className="dashboard__title">Welcome to the Shrine Database</h1>
         <p className="dashboard__text">
-          A place that host a database of shrines in Japan. You can also view
-          shrines you want to visit here too.
+          A comprehensive database of shrines in Japan. Browse, search, and
+          curate the shrines you want to visit.
         </p>
         <div className="dashboard__link-container">
           <Link to="shrines" className="dashboard__link">
             Shrines
           </Link>
-          {/* <Link to="public-api" className="dashboard__link">
+          <Link to="public-api" className="dashboard__link">
             Public Api
-          </Link> */}
+          </Link>
         </div>
       </div>
     </div>

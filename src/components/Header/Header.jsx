@@ -4,7 +4,7 @@ function Header({ counter }) {
   return (
     <header className="header">
       <Link to="/" className="link header__logo">
-        Shrine Finder
+        Shrine Database
       </Link>
       <div className="header__banner">
         <p className="header__goal">

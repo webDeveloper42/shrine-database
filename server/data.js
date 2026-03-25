@@ -2,7 +2,7 @@ const shrines = [
   {
     id: 1,
     name: "Ise Grand Shrine",
-    location: "Ise - Mei , Japan",
+    location: "Ise - Mie, Japan",
     address: "1 Ujitachicho, Ise City, Mie Prefecture 516-0023, Japan",
   },
   {
@@ -15,7 +15,7 @@ const shrines = [
   {
     id: 3,
     name: "Itsukushima Shrine",
-    location: "Izumo City - Shimane, Japan",
+    location: "Hatsukaichi - Hiroshima, Japan",
     address:
       "1-1 Miyajima-cho, Hatsukaichi-shi, Hiroshima Prefecture 739-0588, Japan",
   },
@@ -42,14 +42,14 @@ const shrines = [
     id: 7,
     name: "Yudono-san Shrine",
     location: "Yamagata, Japan",
-    address: " 鶴岡市田麦俣六, 十里山７, Yamagata 997-0532, Japan",
+    address: "鶴岡市田麦俣六, 十里山７, Yamagata 997-0532, Japan",
   },
   {
     id: 8,
     name: "Gas-san Shrine",
     location: "Yamagata, Japan",
     address:
-      "Japan, 〒990-6609 Yamagata, Higashitagawa District, Shonai, Tachiyazawa, 字本澤31",
+      "〒990-6609 Yamagata, Higashitagawa District, Shonai, Tachiyazawa, 字本澤31",
   },
   {
     id: 9,
@@ -64,4 +64,5 @@ const shrines = [
     address: "2306-1 Kyuchu, Kashima, Ibaraki 314-0031, Japan",
   },
 ];
+
 export default shrines;

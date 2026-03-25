@@ -10,14 +10,39 @@
 
 .header__logo {
   font-size: 20px;
+  font-weight: 700;
 }
+
+.header__banner {
+  margin-top: 12px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #f0e8dd 0%, #faf7f0 100%);
+  border: 1px solid #d9d5cc;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(197, 167, 102, 0.12);
+}
+
 .header__goal {
   margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #413827;
+}
+
+.header__goal-counter {
+  font-weight: 700;
+  color: #9d7b32;
+  font-size: 1.05rem;
 }
 
 @media screen and (max-width: 510px) {
   .header__goal {
     text-align: center;
     width: 300px;
+    font-size: 0.9rem;
+  }
+
+  .header__banner {
+    padding: 14px 18px;
   }
 }
