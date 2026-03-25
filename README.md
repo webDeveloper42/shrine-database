@@ -5,7 +5,6 @@
 [![Node.js](https://img.shields.io/badge/Node.js-v18+-green)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
 [![Express](https://img.shields.io/badge/Express.js-5-yellow)](https://expressjs.com/)
-[![License](https://img.shields.io/badge/License-MIT-purple)](./LICENSE)
 
 ## 🌟 Features
 
