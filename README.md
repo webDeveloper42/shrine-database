@@ -1,21 +1,19 @@
 # 🏯 Shrine Database
 
-> A beautiful full-stack application for exploring and managing Japanese shrine data. Built with modern web technologies and designed with a warm, shrine-inspired aesthetic.
+> A frontend-only app for exploring Japanese shrine data. Uses a local JSON dataset and no backend server.
 
 [![Node.js](https://img.shields.io/badge/Node.js-v18+-green)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
-[![Express](https://img.shields.io/badge/Express.js-5-yellow)](https://expressjs.com/)
 
 ## 🌟 Features
 
 ### Core Functionality
 
-- 📱 **Modern UI** — Responsive React interface with real-time API synchronization
-- 🗃️ **Full CRUD API** — RESTful Express.js backend with complete data management
-- 🔍 **Smart Search** — Find shrines by name, location, or address
-- 📊 **Data Management** — Add, update, and delete shrine records
-- ⚡ **Graceful Degradation** — Automatic fallback to local data if API unavailable
-- 🌐 **Cross-Origin Ready** — CORS enabled for seamless frontend-backend communication
+- 📱 **Modern UI** — Responsive React interface with local dataset
+- 🔎 **Search-and-browse** — Filter shrines (name, location, address)
+- 📁 **Local data source** — `src/data/shrines.json` powers the app
+- 🛠️ **Add shrine support** — Optional form with local state callback
+- ♻️ **Server-free** — No Express, no CORS, no network dependency
 
 ### Design & UX
 
@@ -65,15 +63,14 @@ cd shrine-finder
 npm install
 
 # 3. Start the application
-npm run dev          # Frontend only
-# OR
-npm run server:dev   # Backend + Frontend (in separate terminals)
+npm run dev
 ```
 
 **Access the application:**
 
 - Frontend: http://localhost:5173
-- API: http://localhost:5000
+
+> No local API endpoint is required. The app loads data from `src/data/shrines.json`.
 
 ## 📁 Project Structure
 
@@ -84,24 +81,18 @@ shrine-finder/
 │   │   ├── App/                 # Main app component
 │   │   ├── Header/              # Navigation header
 │   │   ├── Shrines/             # Shrine listing page
-│   │   ├── PublicApi/           # API documentation page
+│   │   ├── PublicApi/           # Documentation page
 │   │   ├── Dashboard/           # Landing page
 │   │   ├── ListItem/            # Shrine list item
-│   │   ├── AddShrineForm/       # Example form component
 │   │   └── ...                  # Other components
+│   ├── data/
+│   │   └── shrines.json         # Shrine dataset (static JSON)
 │   ├── utils/
-│   │   ├── api.js               # API client functions
-│   │   └── constants.js         # Shrine data
+│   │   └── constants.js         # Shrine data pointer
 │   ├── vendors/
 │   │   └── normalize.css        # CSS reset
 │   ├── index.css                # Global styles
 │   └── main.jsx                 # React entry point
-│
-├── server/                       # Express Backend
-│   ├── server.js                # Main server & routes
-│   ├── data.js                  # Shrine database
-│   ├── API.md                   # API documentation
-│   └── test-api.sh              # Test automation
 │
 ├── public/                       # Static assets
 ├── package.json                 # Dependencies & scripts
@@ -109,58 +100,33 @@ shrine-finder/
 ├── eslint.config.js            # Linting rules
 ├── .env.example                # Environment template
 ├── .gitignore                  # Git ignore rules
-├── API_INTEGRATION.md          # Frontend integration guide
-├── QUICK_START.sh              # Quick reference
 └── README.md                   # This file
 ```
 
-## 🔌 API Reference
+## � Local Data Source
 
-### Base URL
+The app loads shrine records directly from static JSON at:
 
-```
-http://localhost:5000
-```
+- `src/data/shrines.json`
 
-### Endpoints Overview
+This file includes the same shrine objects previously in `src/utils/constants.js`.
 
-| Method | Endpoint                      | Description         | Auth |
-| ------ | ----------------------------- | ------------------- | ---- |
-| GET    | `/api/shrines`                | Get all shrines     | ❌   |
-| GET    | `/api/shrines/:id`            | Get specific shrine | ❌   |
-| POST   | `/api/shrines`                | Add new shrine      | ❌   |
-| PUT    | `/api/shrines/:id`            | Update shrine       | ❌   |
-| DELETE | `/api/shrines/:id`            | Delete shrine       | ❌   |
-| GET    | `/api/shrines/search?q=query` | Search shrines      | ❌   |
-| GET    | `/api/shrines/count`          | Get total count     | ❌   |
+### How to update data
 
-### Example Requests
+1. Open `src/data/shrines.json`.
+2. Add, update, or remove shrine records.
+3. Save and refresh the app (`npm run dev`).
 
-**Get all shrines:**
+### Download the dataset
+
+- **Download directly from GitHub:** [shrines.json](./src/data/shrines.json)
+- Use cURL to download:
 
 ```bash
-curl http://localhost:5000/api/shrines
+curl -o shrines.json https://raw.githubusercontent.com/<your-org>/<your-repo>/main/src/data/shrines.json
 ```
 
-**Add a shrine:**
-
-```bash
-curl -X POST http://localhost:5000/api/shrines \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "Meiji Shrine",
-    "location": "Shibuya - Tokyo, Japan",
-    "address": "1-1 Yoyogikamizonocho, Shibuya Ward, Tokyo"
-  }'
-```
-
-**Search shrines:**
-
-```bash
-curl "http://localhost:5000/api/shrines/search?q=Kyoto"
-```
-
-For complete API documentation, see [server/API.md](./server/API.md).
+> No backend server is required in this mode. The UI uses local data and browser state only.
 
 ## 💻 Technologies
 
@@ -172,14 +138,6 @@ For complete API documentation, see [server/API.md](./server/API.md).
 | Vite         | 8       | Build tool & dev server |
 | React Router | 6.30    | Client-side routing     |
 | CSS3         | Modern  | Styling & design system |
-
-### Backend Stack
-
-| Technology | Version | Purpose               |
-| ---------- | ------- | --------------------- |
-| Node.js    | 18+     | JavaScript runtime    |
-| Express.js | 5       | Web framework         |
-| CORS       | 2.8     | Cross-origin requests |
 
 ### Development Tools
 
@@ -205,23 +163,13 @@ For complete API documentation, see [server/API.md](./server/API.md).
 │  └──────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
                            │
-                    HTTP/REST/JSON
+                          (local)
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│              Express API Server (localhost:5000)            │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  Routes                                              │   │
-│  │  ├── GET /api/shrines (list)                        │   │
-│  │  ├── GET /api/shrines/:id (detail)                  │   │
-│  │  ├── POST /api/shrines (create)                     │   │
-│  │  ├── PUT /api/shrines/:id (update)                  │   │
-│  │  ├── DELETE /api/shrines/:id (remove)               │   │
-│  │  └── GET /api/shrines/search (search)               │   │
-│  └──────────────────────────────────────────────────────┘   │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  Data Store (In-Memory - array of shrines)           │   │
-│  └──────────────────────────────────────────────────────┘   │
+│               Static data store                            │
+│   `src/data/shrines.json`                                  │
+│   (also exposed as `src/utils/constants.js`)               │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -229,8 +177,8 @@ For complete API documentation, see [server/API.md](./server/API.md).
 
 1. **On App Load**: Frontend fetches data from API with fallback to local data
 2. **Search**: User enters search term → Frontend sends query → API filters results
-3. **Add Shrine**: User submits form → POST request → Server validates → Shrine added
-4. **Update/Delete**: Similar flow for PUT/DELETE operations
+3. **Add Shrine**: User fills the form → local data callback adds shrine in state
+4. **Update/Delete**: Implemented in app state for local editing if required
 
 ## 🛠️ Development
 
@@ -242,34 +190,19 @@ npm run dev           # Start Vite dev server (http://localhost:5173)
 npm run build         # Build for production
 npm run preview       # Preview production build
 npm run lint          # Run ESLint on codebase
-
-# Backend Development
-npm run server        # Start Express API (http://localhost:5000)
-npm run server:dev    # Start with file watching
-
-# Testing
-bash server/test-api.sh  # Run automated API tests
 ```
+
+> Backend commands and tests were removed: this project now runs completely client-side with data from `src/data/shrines.json`.
 
 ### Development Workflow
 
-**Terminal 1 - Backend:**
-
-```bash
-npm run server:dev
-```
-
-**Terminal 2 - Frontend:**
+**Terminal - Frontend:**
 
 ```bash
 npm run dev
 ```
 
-**Terminal 3 - Run Tests (optional):**
-
-```bash
-bash server/test-api.sh
-```
+> The project is now static-data-driven; no backend server terminal is required.
 
 ### Code Style
 
@@ -325,46 +258,23 @@ We welcome contributions! Here's how to get started:
 
 ## 🔒 Security
 
-### Current Implementation
+This project is currently frontend-only with static data. Basic best practices:
 
-- ✅ Input validation on all endpoints
-- ✅ Error handling middleware
-- ✅ Type checking for requests
-- ✅ CORS enabled for development
+- ✅ Keep input validation in UI forms
+- ✅ Avoid eval and unsafe DOM insertion
+- ✅ Use HTTPS when deploying the site
+- ✅ Use code review for JSON metadata changes
 
-### Recommendations for Production
-
-Before deploying to production, implement:
-
-1. **CORS Restrictions** — Limit to specific origins
-2. **Rate Limiting** — Prevent abuse with `express-rate-limit`
-3. **Security Headers** — Add `helmet` middleware
-4. **Authentication** — Implement JWT or session-based auth
-5. **HTTPS** — Enforce encrypted connections
-6. **Database** — Replace in-memory storage with persistent DB
-7. **Validation** — Add schema validation (joi, zod)
-
-See [SECURITY.md](./SECURITY.md) for detailed recommendations.
+For enhanced data security in a future API-driven version, include request validation, auth, and rate limiting.
 
 ## ❓ Troubleshooting
-
-### API Server Won't Start
-
-```bash
-# Error: Port 5000 already in use
-# Solution: Kill the process or use a different port
-lsof -i :5000              # Find process
-kill -9 <PID>             # Kill process
-PORT=3001 npm run server   # Use different port
-```
 
 ### Frontend Not Loading Data
 
 ```bash
 # Check browser console for errors
-# Ensure API server is running on port 5000
-# Check VITE_API_URL environment variable
-env | grep VITE_API_URL
+# Ensure JSON is formatted and present in src/data/shrines.json
+# No backend server is required
 ```
 
 ### Build Fails
@@ -376,21 +286,11 @@ npm install
 npm run build
 ```
 
-### API Tests Fail
-
-```bash
-# Ensure server is running first
-npm run server &
-sleep 2
-bash server/test-api.sh
-```
-
 ## 📊 Project Statistics
 
-- **Lines of Code**: ~1,000+ (frontend + backend)
+- **Lines of Code**: ~800+ (frontend only)
 - **Components**: 10+
-- **API Endpoints**: 8
-- **Dependencies**: 6 production + 10 dev
+- **Dependencies**: 4 production + 10 dev
 - **Shrine Records**: 10 sample shrines included
 
 ## 🗺️ Roadmap
@@ -398,8 +298,7 @@ bash server/test-api.sh
 ### Phase 1: Current ✅
 
 - [x] React + Vite frontend
-- [x] Express.js API
-- [x] CRUD operations
+- [x] Static JSON data source
 - [x] Search functionality
 - [x] Documentation
 
@@ -429,26 +328,25 @@ bash server/test-api.sh
 
 ## 📖 Documentation
 
-- **[API Documentation](./server/API.md)** — Complete API reference with examples
-- **[Integration Guide](./API_INTEGRATION.md)** — Frontend integration examples
-- **[Quick Start](./QUICK_START.sh)** — Quick reference guide
+- **[Local Data](./src/data/shrines.json)** — JSON dataset for the app
+- **[Quick Start](#quick-start)** — Setup and run instructions
 - **[Contributing](./CONTRIBUTING.md)** — Contribution guidelines (planned)
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project currently has no license file. Contributors can add a license later if desired.
 
 ## 🙏 Acknowledgments
 
 - Japanese shrine data and inspiration
-- React and Express.js communities
+- React community
 - Contributors and supporters
 
 ## 📧 Support & Questions
 
 - 📫 **Issues**: Report bugs via GitHub Issues
 - 💬 **Discussions**: Ask questions in GitHub Discussions
-- 📚 **Docs**: Check [API.md](./server/API.md) and [API_INTEGRATION.md](./API_INTEGRATION.md)
+- 📚 **Docs**: Use this README and `src/data/shrines.json`
 - 🐛 **Debugging**: Enable console logs and check browser DevTools
 
 ---
